@@ -1,0 +1,12 @@
+# Ever After by Mirai — PRD §16.2
+# TODO: replace the domain below before launch.
+
+User-agent: *
+Allow: /
+
+# Confirmation pages carry no value in search and should never be indexed (§5)
+Disallow: /thank-you/
+Disallow: /es/gracias/
+Disallow: /ht/mesi/
+
+Sitemap: https://everafterbymirai.com/sitemap.xml

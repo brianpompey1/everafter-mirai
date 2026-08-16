@@ -1,0 +1,109 @@
+# Ever After by Mirai — Netlify configuration (PRD §17.4)
+#
+# This is a plain static site: no build command, no server process. The folder
+# deploys as-is via drag-and-drop or a connected Git repo.
+
+[build]
+  publish = "."
+  command = ""
+
+# --- Canonical host (PRD §17.4) -----------------------------------------------
+# TODO: after connecting the real domain, pick ONE canonical host in Netlify's
+# Domain settings (either apex or www) and let Netlify handle the redirect.
+# Do not hand-write a host redirect here — it will fight Netlify's own.
+
+# --- Keep internal docs off the public site -----------------------------------
+# publish = "." makes the whole repo the web root, so the project's markdown
+# would otherwise be served at e.g. /PLACEHOLDERS.md — a public page announcing
+# that the legal pages are unreviewed drafts. Return 404 instead.
+[[redirects]]
+  from = "/PLACEHOLDERS.md"
+  to = "/404.html"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/README.md"
+  to = "/404.html"
+  status = 404
+  force = true
+
+# --- Trailing-slash policy ----------------------------------------------------
+# Directory-style URLs (/es/, /thank-you/) are canonical. Netlify serves
+# index.html for these automatically; these rules catch the slashless variants
+# so both forms resolve to one indexed URL.
+[[redirects]]
+  from = "/es"
+  to = "/es/"
+  status = 301
+
+[[redirects]]
+  from = "/ht"
+  to = "/ht/"
+  status = 301
+
+[[redirects]]
+  from = "/thank-you"
+  to = "/thank-you/"
+  status = 301
+
+[[redirects]]
+  from = "/privacy"
+  to = "/privacy/"
+  status = 301
+
+[[redirects]]
+  from = "/terms"
+  to = "/terms/"
+  status = 301
+
+# --- Security headers (PRD §14 Security, §17.4) -------------------------------
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "SAMEORIGIN"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "geolocation=(), microphone=(), camera=(), payment=(), interest-cohort=()"
+    Strict-Transport-Security = "max-age=31536000; includeSubDomains"
+
+    # CSP matches what the site ACTUALLY loads today: its own assets plus Google
+    # Fonts. 'unsafe-inline' for style-src covers the handful of inline style
+    # attributes in the markup.
+    #
+    # TODO before enabling Meta Pixel or analytics (PRD §15): add their domains
+    # to script-src, img-src, and connect-src, then re-test the form submission.
+    # A too-strict CSP will silently break the pixel; a too-loose one defeats
+    # the point. Update it deliberately when you wire tracking up.
+    Content-Security-Policy = "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; form-action 'self'; frame-ancestors 'self'; base-uri 'self'; object-src 'none'"
+
+# --- Caching (PRD §17.4) ------------------------------------------------------
+# HTML stays update-friendly so a copy or price fix goes live immediately.
+[[headers]]
+  for = "/*.html"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
+
+# Assets are cached hard. Because these filenames are NOT fingerprinted yet,
+# a year-long cache would strand visitors on a stale stylesheet — one hour is
+# the safe setting until you add content hashes to the filenames.
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=3600"
+
+# Confirmation pages must never be indexed (PRD §5)
+[[headers]]
+  for = "/thank-you/*"
+  [headers.values]
+    X-Robots-Tag = "noindex"
+
+[[headers]]
+  for = "/es/gracias/*"
+  [headers.values]
+    X-Robots-Tag = "noindex"
+
+[[headers]]
+  for = "/ht/mesi/*"
+  [headers.values]
+    X-Robots-Tag = "noindex"

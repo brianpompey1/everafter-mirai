@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48">
+  <rect width="48" height="48" rx="8" fill="#F7F2E8"/>
+  <circle cx="24" cy="24" r="20" fill="none" stroke="#B2873F" stroke-width="1.5"/>
+  <text x="24" y="32" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif"
+        font-size="20" font-weight="600" fill="#59664F">EA</text>
+</svg>

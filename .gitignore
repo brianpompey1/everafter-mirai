@@ -1,0 +1,19 @@
+# macOS
+.DS_Store
+._*
+.Spotlight-V100
+.Trashes
+
+# Editors
+.vscode/
+.idea/
+*.swp
+
+# Netlify local state
+.netlify/
+
+# Never commit real secrets. Nothing in this project needs them today —
+# if you later add an API key or webhook URL, put it in Netlify's environment
+# variables, not in a file here.
+.env
+.env.*

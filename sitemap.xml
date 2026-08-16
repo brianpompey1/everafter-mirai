@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Ever After by Mirai — PRD §9.3, §16.2
+  Every indexable language URL, each listing all three alternates plus x-default.
+  Noindex confirmation pages are deliberately absent.
+  TODO: replace the domain and refresh <lastmod> before launch.
+-->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+
+  <url>
+    <loc>https://everafterbymirai.com/</loc>
+    <lastmod>2026-08-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://everafterbymirai.com/"/>
+    <xhtml:link rel="alternate" hreflang="es-US" href="https://everafterbymirai.com/es/"/>
+    <xhtml:link rel="alternate" hreflang="ht" href="https://everafterbymirai.com/ht/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://everafterbymirai.com/"/>
+  </url>
+
+  <url>
+    <loc>https://everafterbymirai.com/es/</loc>
+    <lastmod>2026-08-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://everafterbymirai.com/"/>
+    <xhtml:link rel="alternate" hreflang="es-US" href="https://everafterbymirai.com/es/"/>
+    <xhtml:link rel="alternate" hreflang="ht" href="https://everafterbymirai.com/ht/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://everafterbymirai.com/"/>
+  </url>
+
+  <url>
+    <loc>https://everafterbymirai.com/ht/</loc>
+    <lastmod>2026-08-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://everafterbymirai.com/"/>
+    <xhtml:link rel="alternate" hreflang="es-US" href="https://everafterbymirai.com/es/"/>
+    <xhtml:link rel="alternate" hreflang="ht" href="https://everafterbymirai.com/ht/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://everafterbymirai.com/"/>
+  </url>
+
+  <url>
+    <loc>https://everafterbymirai.com/privacy/</loc>
+    <lastmod>2026-08-16</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+
+  <url>
+    <loc>https://everafterbymirai.com/terms/</loc>
+    <lastmod>2026-08-16</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+
+</urlset>
