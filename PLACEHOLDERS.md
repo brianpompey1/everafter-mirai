@@ -11,24 +11,31 @@ forbids shipping draft legal copy or placeholder contact details to production.
 
 ## ⛔ 1. Contact details
 
-The site is hand-written static HTML, so each value appears in several files.
-Replace all occurrences of each string:
+### ✅ Done — phone and email are real
+
+- **Phone:** `(321) 278-5973` — live in all `tel:`/`sms:` links, the visible
+  footer text, and the LocalBusiness JSON-LD, across all nine pages.
+- **Email:** `miraiglobal111@gmail.com` — live everywhere, including the privacy
+  and terms contact sections.
+
+### ⛔ Still placeholders
 
 | Placeholder | Real value | Where it appears |
 |---|---|---|
-| `+15550000000` (in `tel:` and `sms:` links) | your business number | `index.html`, `thank-you/index.html`, `privacy/index.html`, `terms/index.html` |
-| `(555) 000-0000` (visible text) | same number, formatted | `index.html` footer, `privacy/index.html`, `terms/index.html` |
-| `hello@everafterbymirai.com` | your business email | `index.html`, `privacy/index.html`, `terms/index.html` |
-| `everafterbymirai.com` | your real domain | `index.html` (canonical, hreflang, OG, JSON-LD), `robots.txt`, `sitemap.xml`, `privacy/`, `terms/` |
-| `facebook.com/everafterbymirai` | real Facebook URL | `index.html` (contact rail, footer, JSON-LD) |
-| `instagram.com/everafterbymirai` | real Instagram URL | `index.html` (contact rail, footer, JSON-LD) |
-| `m.me/everafterbymirai` | real Messenger link | `index.html` contact rail |
+| `everafterbymirai.com` | your real domain | `index.html`/`es/`/`ht/` (canonical, hreflang, OG, JSON-LD), `robots.txt`, `sitemap.xml`, `privacy/`, `terms/` |
+| `facebook.com/everafterbymirai` | real Facebook URL | landing pages (contact rail, footer, JSON-LD) |
+| `instagram.com/everafterbymirai` | real Instagram URL | landing pages (contact rail, footer, JSON-LD) |
+| `m.me/everafterbymirai` | real Messenger link | landing pages, contact rail |
 
 Find every remaining one before you deploy:
 
 ```bash
-grep -rn "5550000000\|555) 000-0000\|everafterbymirai" --include="*.html" --include="*.txt" --include="*.xml" .
+grep -rn "everafterbymirai" --include="*.html" --include="*.txt" --include="*.xml" .
 ```
+
+**Note on the email:** a Gmail address works fine and is completely normal for a
+new business. If you later move to `hello@yourdomain.com`, it is one
+find-and-replace across the same files — grep for `miraiglobal111`.
 
 ---
 
