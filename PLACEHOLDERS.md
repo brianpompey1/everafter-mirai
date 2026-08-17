@@ -32,15 +32,26 @@ grep -rn "5550000000\|555) 000-0000\|everafterbymirai" --include="*.html" --incl
 
 ---
 
-## ⛔ 2. Remove the preview banners
+## ⚠️ 2. Preview banners — mostly removed
 
-Every page carries a red `.placeholder-banner` block. Delete the banner markup
-from each HTML file and the `.placeholder-banner` rule at the end of
+The red "PREVIEW BUILD" banner is **gone** from all six customer-facing pages
+(the three landing pages and the three confirmation pages).
+
+Two banners remain, on `privacy/index.html` and `terms/index.html`, reading
+*"DRAFT — not legal advice."* **Leave them until an attorney has reviewed those
+pages** (§3 above). They are the only thing on the site telling a visitor that
+the published policy is not final. Once the pages are reviewed, delete both
+banners and the `.placeholder-banner` rule at the end of
 `assets/css/styles.css`.
 
 ```bash
 grep -rn "placeholder-banner" --include="*.html" --include="*.css" .
 ```
+
+**Removing the banners does not make the site launch-ready.** The phone number
+is still `(555) 000-0000`, the domain is still a placeholder, and the
+translations are still unreviewed. The site now *looks* finished, so work the
+⛔ items above before pointing a real domain at it.
 
 ---
 
